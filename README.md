@@ -1,24 +1,11 @@
-# Terraform2: Docker + Modules + Workspaces
+# terraform-nginx-docker-demo
 
-Учебный проект Terraform:
-- провайдер `kreuzwerker/docker`
-- модуль `modules/nginx_service`
-- окружения `dev` и `test` через `*.tfvars`
-- изоляция state через `terraform workspace`
+A minimal Terraform project that runs an Nginx container via the Docker provider.
 
-## Структура
-
-- `versions.tf` — версия Terraform и required providers
-- `providers.tf` — конфигурация провайдера docker
-- `variables.tf` — входные переменные root-модуля
-- `main.tf` — вызов модуля `nginx_service`
-- `outputs.tf` — outputs root-модуля
-- `dev.tfvars` / `test.tfvars` — параметры окружений
-- `modules/nginx_service/*` — реализация сервиса
-
-## Быстрый старт
+## Run
 
 ```bash
 terraform init
-terraform workspace new dev
-terraform workspace new test# terraform-nginx-docker
+terraform workspace select dev || terraform workspace new dev
+terraform apply -var-file=dev.tfvars
+```

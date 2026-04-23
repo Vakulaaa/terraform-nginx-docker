@@ -1,5 +1,6 @@
 output "environment" {
-  value = terraform.workspace
+  description = "Current Terraform workspace"
+  value       = terraform.workspace
 }
 
 output "container_name" {

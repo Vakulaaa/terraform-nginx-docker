@@ -1,7 +1,9 @@
 output "container_name" {
-  value = docker_container.this.id
+  description = "Container name"
+  value       = docker_container.nginx.name
 }
 
 output "container_id" {
-  value = docker_container.this.id
+  description = "Container ID"
+  value       = docker_container.nginx.id
 }
